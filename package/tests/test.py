@@ -1,4 +1,4 @@
-from package.src.models import Player
+from package.src.models import Dice, Player
 import unittest
 
 from ..src.game import SnakeAndLadderGame
@@ -7,7 +7,8 @@ class TestSnakeAndLadderGame(unittest.TestCase):
 
     def test_player_position_does_not_exceeded_the_board(self):
         board_size = 100
-        game = SnakeAndLadderGame(board_size)
+        dice = Dice(1, 6)
+        game = SnakeAndLadderGame(board_size, dice)
         game.add_player("name")
         game.play()
         current_position = game.players[0].position
@@ -15,7 +16,8 @@ class TestSnakeAndLadderGame(unittest.TestCase):
     
     def test_snake(self):
         board_size = 100
-        game = SnakeAndLadderGame(board_size)
+        dice = Dice(1, 6)
+        game = SnakeAndLadderGame(board_size, dice)
         game.add_player("name")
         game.add_snake(14, 7)
         player = game.players[0]

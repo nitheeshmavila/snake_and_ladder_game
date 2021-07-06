@@ -9,6 +9,11 @@ class Dice:
     def roll(self):
         return random.randint(self.min_value, self.max_value)
 
+class CrookedDice(Dice):
+
+    def roll(self):
+        " Generate random even integer from min to max"
+        return random.randrange(self.min_value, self.max_value, 2)
 
 class Player:
 

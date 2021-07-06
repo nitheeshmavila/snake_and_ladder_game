@@ -1,13 +1,13 @@
 from collections import deque
 
-from models import Board, Dice, Player, Snake
+from models import Board, Dice, Player, Snake, CrookedDice
 
 class SnakeAndLadderGame:
 
-    def __init__(self, board_size):
+    def __init__(self, board_size, dice):
         self.players = deque()
         self.board = Board(board_size)
-        self.dice = Dice(1, 6)
+        self.dice = dice
         self.snakes = {} # {start_position: snake_object}
     
     def add_player(self, name):
@@ -56,7 +56,14 @@ class SnakeAndLadderGame:
 
 # Driver code
 board_size = 100
-game = SnakeAndLadderGame(board_size)
+
+dice_type = int(input("Enter 1 for normal Dice and 2 for Crooked Dice \n"))
+if dice_type == 1:
+    dice = Dice(1, 6)
+elif dice_type == 2:
+    dice = CrookedDice(2, 12)
+    
+game = SnakeAndLadderGame(board_size, dice)
 game.add_player("nmn")
 game.add_snake(5, 2)
 game.add_snake(32, 19)
