@@ -25,6 +25,11 @@ class Board:
         self.start = 1
         self.end = size
 
+class Snake:
+
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
 
 
         
