@@ -12,11 +12,10 @@ elif dice_type == 2:
     dice = CrookedDice(2, 12)
     
 game = SnakeAndLadderGame(board_size, dice)
-game.add_player("nmn")
-game.add_snake(5, 2)
-game.add_snake(32, 19)
-
-print("Player initial position ", game.players[0].position)
+game.add_player("Player1")
+game.add_player("Player2")
+game.add_snake(5, 2, "normal")
+game.add_snake(32, 19, "green")
 game.play()
-print("Player moved to position ", game.players[0].position)
+
 

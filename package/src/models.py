@@ -32,10 +32,8 @@ class Board:
 
 class Snake:
 
-    def __init__(self, start, end):
+    def __init__(self, start, end, type_):
         self.start = start
         self.end = end
-
-
-        
-    
+        self.type_ = type_
+        self.dead = False
